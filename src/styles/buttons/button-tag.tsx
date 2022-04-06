@@ -1,7 +1,23 @@
+import React from "react"
+import styled from 'styled-components'
+import { Colors } from "../../themes/colors.ts";
 
+const Button = ({ text }: string) => {
+  return (
+    <ButtonTag>
+      {text}
+    </ButtonTag>
+  )
+}
 
+export default Button;
 
-
-// TODO: create the interface for the button,
-// TODO: create the types of buttons you will be using
-// TODO: create a click handler on the buttons
+const ButtonTag = styled.button({
+  backgroundColor: Colors.orange(),
+  color: Colors.white(),
+  borderRadius: "50px",
+  width: "100%",
+  height: "50%",
+  border: "transparent",
+  padding: "8px"
+});
