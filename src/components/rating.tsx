@@ -6,30 +6,32 @@ import Card from "../styles/surfaces/card.tsx";
 import { Colors } from "../themes/colors.ts";
 import StarIcon from "../resources/icon-star.svg"
 import { H2, P } from "../styles/typography/typography.ts"
-const RatingComponent = () => {
-
-  const pillsData: number[] = [1, 2, 3, 4, 5]
+import { strings } from "../utility/strings";
+const RatingForm = ({ rating, handleSubmit, handleRatingChange }: {
+  handleSubmit: (arg0: any) => any,
+  handleRatingChange: (arg0: any) => any,
+  rating: number
+}) => {
+  const pillsData: number[] = [1, 2, 3, 4, 5];
   return (
-    <Card color={Colors.veryDarkBlue()}>
+    <Card color={Colors.veryDarkBlue()
+    } >
       <RatingCardLayout>
         <IconContainer>
           <IconImage src={StarIcon} />
         </IconContainer>
-        <H2>
-          How Did We do?
-        </H2>
-        <P secondary>
-          Please let us know how we did
-          with your support request.
-          All feedback is appreciated to
-          help us improve our offering!
-        </P>
+        <H2> {strings.header}</H2>
+        <P secondary>{strings.paragraph}</P>
         <PillsContainer>
           {pillsData.map((item, idx) => (
-            <PillButton text={item} key={idx} ></PillButton>
+            <PillButton
+              text={item}
+              key={item}
+              active={rating === idx + 1}
+              onClick={handleRatingChange} />
           ))}
         </PillsContainer>
-        <Button text="SUBMIT"></Button>
+        <Button text={strings.submit} onClick={handleSubmit}></Button>
       </RatingCardLayout>
     </Card >
   )
@@ -65,4 +67,4 @@ const PillsContainer = styled.div({
   flexWrap: "nowrap",
 })
 
-export default RatingComponent;
+export default RatingForm;
