@@ -1,8 +1,11 @@
-import { Colors } from "./themes/colors.ts";
-
+import RatingComponent from "./components/rating.tsx";
+import Layout from "./styles/layouts/layout.tsx";
 const App = () => {
+  // create a rating container and render both of the rating/thank you in it
   return (
-    <p style={{ color: Colors.orange() }}>Rating component</p>
+    <Layout>
+      <RatingComponent></RatingComponent>
+    </Layout>
   );
 }
 
