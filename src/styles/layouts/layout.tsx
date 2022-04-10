@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components"
 import { IChildren } from "../../models/generic-react-children";
 import useMediaQuery from "../../hooks/useMediaQuery.tsx";
+import { Colors } from "../../themes/colors.ts"
 
 interface IStyledLayout {
   mobile: boolean
@@ -17,6 +18,8 @@ const Layout = ({ children }: IChildren) => {
 }
 
 const StyledLayout = styled.div<IStyledLayout>(({ mobile }) => ({
+  background: Colors.veryDarkBlue(),
+  boxSizing: "border-box",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",

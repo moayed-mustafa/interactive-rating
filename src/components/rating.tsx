@@ -7,14 +7,15 @@ import { Colors } from "../themes/colors.ts";
 import StarIcon from "../resources/icon-star.svg"
 import { H2, P } from "../styles/typography/typography.ts"
 import { strings } from "../utility/strings";
-const RatingForm = ({ rating, handleSubmit, handleRatingChange }: {
+const RatingForm = ({ rating, handleSubmit, handleRatingChange, error }: {
   handleSubmit: (arg0: any) => any,
   handleRatingChange: (arg0: any) => any,
-  rating: number
+  rating: number,
+  error?: string
 }) => {
   const pillsData: number[] = [1, 2, 3, 4, 5];
   return (
-    <Card color={Colors.veryDarkBlue()
+    <Card color={Colors.darkBlue()
     } >
       <RatingCardLayout>
         <IconContainer>
@@ -32,6 +33,10 @@ const RatingForm = ({ rating, handleSubmit, handleRatingChange }: {
           ))}
         </PillsContainer>
         <Button text={strings.submit} onClick={handleSubmit}></Button>
+        {error &&
+          <ErrorContainer >
+            <P tertiary>{error}</P>
+          </ErrorContainer >}
       </RatingCardLayout>
     </Card >
   )
@@ -49,9 +54,8 @@ const RatingCardLayout = styled.div({
   position: "relative"
 
 });
-
 const IconContainer = styled.div({
-  background: Colors.darkBlue(),
+  background: Colors.veryDarkBlue(),
   borderRadius: "50px",
   zIndex: 1,
   width: "50px",
@@ -65,6 +69,13 @@ const PillsContainer = styled.div({
   alignItems: "space-between",
   justifyContent: "space-between",
   flexWrap: "nowrap",
+})
+const ErrorContainer = styled.div({
+  background: Colors.darkBlue(),
+  width: "100%",
+  borderRadius: "10px",
+  textAlign: "center",
+  padding: "12px 0 0 0",
 })
 
 export default RatingForm;

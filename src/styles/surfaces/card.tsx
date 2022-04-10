@@ -22,8 +22,7 @@ const Card = ({ color, children }: ICard) => {
 }
 
 const StyledCard = styled.div<IStyledCard>(({ color, mediaQuery }) => ({
-  boxShadow: `5px 4px 5px 0px  ${Colors.white()}`,
-  borderRadius: "15px",
+  borderRadius: "20px",
   ...(color ? {
     backgroundColor: color,
   } :
@@ -31,12 +30,13 @@ const StyledCard = styled.div<IStyledCard>(({ color, mediaQuery }) => ({
       backgroundColor: Colors.darkBlue(),
     }),
   ...(mediaQuery ? {
-    width: "320px",
-    height: "420px",
+    width: "300px",
+    height: "400px",
   } :
     {
       width: "375px",
-      height: "420px",
+      height: "400px",
+
     }),
 
 }))
