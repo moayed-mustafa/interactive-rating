@@ -17,12 +17,12 @@ const DefaultText = styled.span<{ secondary?: boolean, }>(props => ({
     Colors.white(),
 }));
 
-export const H2 = styled(DefaultText.withComponent('h1'))({
+export const H2 = styled(DefaultText.withComponent('h2'))({
   fontSize: '2rem',
   fontWeight: 600,
 
 });
 
-export const P = styled(DefaultText.withComponent('h1'))({
+export const P = styled(DefaultText.withComponent('p'))({
   fontSize: '15px',
 });
