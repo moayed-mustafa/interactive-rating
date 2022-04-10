@@ -29,8 +29,8 @@ const PillButtonTag = styled.button<{ active: boolean }>(({ active }) => ({
     background: Colors.lightGrey(),
     color: Colors.white(),
   } : {
-    backgroundColor: Colors.darkBlue(),
-    color: Colors.lightGrey(),
+      backgroundColor: Colors.veryDarkBlue(),
+      color: Colors.lightGrey(),
   }),
   borderRadius: "50%",
   width: "50px",
